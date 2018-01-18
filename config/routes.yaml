@@ -6,3 +6,6 @@ contact:
     path: /contact
     controller: App\Controller\DefaultController::contact
 
+overons:
+    path: /overons
+    controller: App\Controller\DefaultController::overons

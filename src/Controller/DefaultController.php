@@ -21,4 +21,8 @@ class DefaultController extends Controller
     public function contact(){
         return $this->render('contact.html.twig');
     }
+
+    public function overons(){
+        return $this->render('overons.html.twig');
+    }
 }
