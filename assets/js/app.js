@@ -7,3 +7,6 @@ $(document).ready(function() {
 });
 
 // Vanaf hier Javascript toevoegen!
+
+
+//
