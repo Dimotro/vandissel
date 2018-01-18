@@ -79,16 +79,20 @@
 }
 
 /* Over ons */
-#overons {
+#overons{
   margin: auto;
   background-color: $brand-color7;
+  height: auto;
 
-  .overons-box1 {
-    width: 500px;
+  .overons-box1 img{
+    width: 20%;
+    margin-left: 60%;
   }
-
-  .overons-box2 {
-    width: 500px;
+  
+  .overons-box2 img{
+    width: 35%;
+    margin-left: 20%;
+    margin-top: 5%;
   }
 }
 
