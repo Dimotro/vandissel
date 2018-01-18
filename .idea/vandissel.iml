@@ -6,6 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <library name="PHP" type="php">
         <CLASSES>
           <root url="jar://$APPLICATION_PLUGINS_DIR$/phpstorm-library-plugin.jar!/Phalcon/Phalcon" />
@@ -16,6 +17,8 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       <library name="PHARS">
