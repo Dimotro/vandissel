@@ -16,3 +16,5 @@
 ###< symfony/webpack-encore-pack ###
 
 \.idea/
+
+\.DS_Store
