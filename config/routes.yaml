@@ -2,4 +2,7 @@ homepage:
     path: /
     controller: App\Controller\DefaultController::home
 
+contact:
+    path: /contact
+    controller: App\Controller\DefaultController::contact
 

@@ -18,4 +18,7 @@ class DefaultController extends Controller
             'something' => 'Awesome!'
         ]);
     }
+    public function contact(){
+        return $this->render('contact.html.twig');
+    }
 }

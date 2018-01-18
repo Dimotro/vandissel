@@ -56,6 +56,31 @@
   }
 }
 
+
+/* Contact */
+#contact{
+  margin: auto;
+  background-color: $brand-color7;
+  .contact-header{
+    margin-bottom: 50px;
+  }
+
+  .gegevens-box{
+    margin-bottom: 50px;
+    border-color: #313131;
+
+  }
+
+  .iframe{
+    margin-top: 430px;
+    margin-left: 150px;
+  }
+
+}
+
+
+
+
 /* Footer */
 #footer{
   background-color: $brand-color6;
