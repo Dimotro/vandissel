@@ -100,14 +100,43 @@
 
   .footer-box{
     background-color: $brand-color5;
-    padding: 30px 0;
+    padding:  15px 30px;
 
     .block{
+      height: 100%;
+      font-family: "europa";
 
       .block-title{
-        font-family: "proxima-nova";
         text-align: center;
+        line-height: 40px;
+        font-family: basic-sans, sans-serif;
+        background-color: white;
+        border-radius: 30px;
+        font-style: normal;
+        font-weight: 600;
         font-size: 16px;
+      }
+      ul {
+        font-size: 16px;
+        margin-right: 30px;
+        margin-top: 15px;
+        line-height: 25px;
+      }
+
+      a{
+        color: #333333;
+        text-decoration: none;
+      }
+    }
+    .copyright{
+      text-align: center;
+      background-color: white;
+      line-height: 50px;
+      border-radius: 25px;
+      font-family: "europa";
+
+      a{
+        color: $brand-color5;
       }
     }
   }
@@ -159,4 +188,10 @@
       }
     }
   }
+}
+
+.register-form{
+  margin-top: 120px;
+  width: 350px;
+  margin: 0 auto;
 }
