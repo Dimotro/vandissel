@@ -15,12 +15,13 @@ use function Sodium\add;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+// voorbeeld commentaar
 class DefaultController extends Controller
 {
     public function home()
     {
         return $this->render('home.html.twig', [
-            'something' => 'Awesome!'
+            'something' => 'Awesome!',
         ]);
     }
 

@@ -159,16 +159,26 @@
     }
   }
 }
+//home page
 #test {
   .test {
   }
 }
 #content{
   background: $brand-color7;
+
+  .header-foto2 {
+    width: 100%;
+    height:500px;
+  }
+
   //margin-top: 10%;
   .content-box{
+
+
     .welkom {
       text-align: center;
+      font-family: europa;
       
     }
     .kwaliteiten{
@@ -176,14 +186,12 @@
       .kwaliteit{
         text-align: center;
 
-        .icon{
-          font-size: 35px;
-          color: #5cb85c;
-        }
-
         h5 {
           color: black;
           margin-right: 15px;
+          font-size: 20px;
+          font-family: europa;
+
           .icon {
             font-size: 35px;
             color: #5cb85c;
@@ -194,12 +202,8 @@
         .text {
           margin-top: 4px;
           text-align: left;
-          //margin-bottom: 40px;
-          //background: lightslategray;
-          //color: #ffffff;
-          //border-style: solid;
-         // border-radius: 20px;
-          font-size: 12px;
+          font-family: basic-sans, sans-serif;
+          font-size: 15px;
           padding: 10px;
           width: auto;
         }

@@ -52,17 +52,17 @@ class Object
     private $beschikbaarheid;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime",nullable=true)
      */
     private $objDatumUit;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime",nullable=true)
      */
     private $objDatumTerug;
 
     /**
-     * @ORM\Column(type="dateinterval")
+     * @ORM\Column(type="dateinterval",nullable=true)
      */
     private $objDagenVerhuurd;
 
