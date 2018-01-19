@@ -17,3 +17,7 @@ register:
 login:
     path: /login
     controller: App\Controller\DefaultController::login
+
+huidigaanbod:
+    path: /huidigaanbod
+    controller: App\Controller\DefaultController::huidigaanbod

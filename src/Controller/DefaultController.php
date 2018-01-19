@@ -29,6 +29,10 @@ class DefaultController extends Controller
         return $this->render('overons.html.twig');
     }
 
+    public function huidigaanbod(){
+        return $this->render('huidigaanbod.html.twig');
+    }
+
     public function loginForm(){
         return $this->render('pages/login.html.twig', array(
 
