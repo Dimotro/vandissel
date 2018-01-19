@@ -56,6 +56,21 @@
   }
 }
 
+/* Huidig aanbod */
+#huidigaanbod{
+  margin: auto;
+  height: auto;
+  background-color: $brand-color7;
+  .huidigaanbod-content{
+    margin-top: 10%;
+    margin-bottom: 60%;
+  }
+
+  .huidigaanbod{
+    text-align: center;
+    margin-top: 2%;
+  }
+}
 
 /* Contact */
 #contact{
