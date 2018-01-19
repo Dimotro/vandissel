@@ -21,3 +21,6 @@ login:
 huidigaanbod:
     path: /huidigaanbod
     controller: App\Controller\DefaultController::huidigaanbod
+admin:
+    path: /pages/objectAdden
+    controller: App\controller\AdminController::addObject
