@@ -10,17 +10,22 @@ namespace App\Controller;
 
 
 use App\Entity\Klantaccount;
+use function PHPSTORM_META\type;
+use function Sodium\add;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class DefaultController extends Controller
 {
-    public function home(){
+    public function home()
+    {
         return $this->render('home.html.twig', [
             'something' => 'Awesome!'
         ]);
     }
-    public function contact(){
+
+    public function contact()
+    {
         return $this->render('contact.html.twig');
 
     }
@@ -61,4 +66,3 @@ class DefaultController extends Controller
         return $this->render('pages/register.html.twig');
     }
 }
-
