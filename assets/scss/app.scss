@@ -44,12 +44,36 @@
         background-color: #5cb85c;
         padding: 0 15px;
         border-radius: 30px;
+        position: relative;
+        z-index: 30;
 
         .icon{
           margin-right: 10px;
         }
-        a{
+        .link{
           color: white;
+        }
+        &:hover .user-menu{
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      .user-menu{
+        position: absolute;
+        padding: 0;
+        top: 28px;
+        left: 0;
+        background-color: #73b566;
+        border-radius: 0 0 30px 30px;
+        transition: 0.3s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+
+        .user-item{
+          width: 142px;
+          text-align: center;
+          list-style-type: none;
         }
       }
     }
@@ -206,6 +230,22 @@
           font-size: 15px;
           padding: 10px;
           width: auto;
+        }
+      }
+    }
+    .user-overview-actions{
+
+      .search-form{
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px;
+
+        input[type="text"]{
+          margin-right: 15px;
+          padding: 0 15px;
+        }
+        input[type="submit"]{
+
         }
       }
     }

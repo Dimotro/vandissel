@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
  */
-class Order
+class KlantOrder
 {
     /**
      * @ORM\Id
@@ -32,15 +32,15 @@ class Order
     private $orderDatum;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Object", inversedBy="order")
+     * @ORM\OneToOne(targetEntity="App\Entity\ObjectProduct", inversedBy="klantOrder")
      */
-    private $object;
+    private $objectProduct;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Optie", inversedBy="")
+     * @ORM\ManyToOne(targetEntity="App\Entity\OptieProduct", inversedBy="")
      * @ORM\Column(nullable=true)
      */
-    private $opties;
+    private $optieProducten;
 
     /**
      * @return mixed
@@ -109,17 +109,17 @@ class Order
     /**
      * @return mixed
      */
-    public function getObject()
+    public function getObjectProduct()
     {
-        return $this->object;
+        return $this->objectProduct;
     }
 
     /**
-     * @param mixed $object
+     * @param mixed $objectProduct
      */
-    public function setObject($object)
+    public function setObjectProduct($objectProduct)
     {
-        $this->object = $object;
+        $this->objectProduct = $objectProduct;
     }
 
 }

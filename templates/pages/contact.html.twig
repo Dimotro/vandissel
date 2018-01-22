@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends '../base.html.twig' %}
 {% block body %}
-    {% include 'partials/header.html.twig' %}
+    {% include '../partials/header.html.twig' %}
     <div id ="contact">
         <div class="content-contact-box container">
             <div class="block col-md-6 contact">
@@ -16,7 +16,7 @@
                 <img src="{{ asset('images/gs-contact-us.png') }}" alt="">
             </div>
 
-            <div class="block col-md-6 maps">
+            <div class="block col-md-6 map s">
                 <div class="iframe">
                     <iframe width="300" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDUEpT-4uxEcRUMKRcvicE2g&key=AIzaSyDm-7VKoI82EowFBBxH8oZHIz5LbZ1K07U" allowfullscreen></iframe>
                 </div>
@@ -24,5 +24,5 @@
 
         </div>
     </div>
-    {% include 'partials/footer.html.twig' %}
+    {% include '../partials/footer.html.twig' %}
 {% endblock %}

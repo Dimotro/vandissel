@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ObjectRepository")
  */
-class Object
+class ObjectProduct
 {
     /**
      * @ORM\Id
@@ -17,12 +17,12 @@ class Object
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Order", mappedBy="object")
+     * @ORM\OneToOne(targetEntity="App\Entity\KlantOrder", mappedBy="objectProduct")
      */
-    private $order;
+    private $klantOrder;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Specificatie", mappedBy="")
+     * @ORM\OneToOne(targetEntity="App\Entity\Specificatie", inversedBy="object")
      */
     private $specificatie;
 
@@ -30,11 +30,6 @@ class Object
      * @ORM\Column(type="string")
      */
     private $chassisnummer;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $objId;
 
     /**
      * @ORM\Column(type="string")
@@ -66,6 +61,34 @@ class Object
      */
     private $objDagenVerhuurd;
 
+
+    /**
+     * @ORM\Column(type="decimal", nullable=false)
+     */
+    private $prijs;
+
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $fotos;
+
+    /**
+     * @return mixed
+     */
+    public function getPrijs()
+    {
+        return $this->prijs;
+    }
+
+    /**
+     * @param mixed $prijs
+     */
+    public function setPrijs($prijs)
+    {
+        $this->prijs = $prijs;
+    }
+
     /**
      * @return mixed
      */
@@ -80,22 +103,6 @@ class Object
     public function setChassisnummer($chassisnummer)
     {
         $this->chassisnummer = $chassisnummer;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getObjId()
-    {
-        return $this->objId;
-    }
-
-    /**
-     * @param mixed $objId
-     */
-    public function setObjId($objId)
-    {
-        $this->objId = $objId;
     }
 
     /**
@@ -224,6 +231,22 @@ class Object
     public function setBeschikbaarheid($beschikbaarheid)
     {
         $this->beschikbaarheid = $beschikbaarheid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFotos()
+    {
+        return $this->fotos;
+    }
+
+    /**
+     * @param mixed $fotos
+     */
+    public function setFotos($fotos)
+    {
+        $this->fotos = $fotos;
     }
 
 }

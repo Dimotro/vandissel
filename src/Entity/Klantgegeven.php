@@ -18,12 +18,12 @@ class Klantgegeven
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Klantaccount")
+     * @ORM\OneToOne(targetEntity="App\Entity\Klantaccount", mappedBy="klantPersoonlijkeGegevens")
      */
     private $klantAccount;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Klantadres")
+     * @ORM\OneToOne(targetEntity="App\Entity\Klantadres", mappedBy="klantGegevens")
      */
     private $klantNAW;
 

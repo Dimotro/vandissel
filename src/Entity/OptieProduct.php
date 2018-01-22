@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OptieRepository")
  */
-class Optie
+class OptieProduct
 {
     /**
      * @ORM\Id
@@ -19,25 +19,29 @@ class Optie
     /**
      * @ORM\Column(type="string")
      */
+    private $optieTitel;
+    /**
+     * @ORM\Column(type="string")
+     */
     private $optieOmschrijving;
 
     /**
-     * @ORM\Column(type="decimal")
+     * @ORM\Column(type="string")
      */
     private $optiePrijs;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $optieDatumUit;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $optieDatumTerug;
 
     /**
-     * @ORM\Column(type="dateinterval")
+     * @ORM\Column(type="dateinterval", nullable=true)
      */
     private $optieDagenVerhuurd;
 
@@ -47,9 +51,14 @@ class Optie
     private $beschikbaarheid;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Order", inversedBy="opties")
+     * @ORM\ManyToOne(targetEntity="App\Entity\KlantOrder", inversedBy="optieProducten")
      */
-    private $order;
+    private $klantOrder;
+
+    public function __construct()
+    {
+        $this->beschikbaarheid = true;
+    }
 
     /**
      * @return mixed
@@ -150,9 +159,9 @@ class Optie
     /**
      * @return mixed
      */
-    public function getOrder()
+    public function getKlantOrder()
     {
-        return $this->order;
+        return $this->klantOrder;
     }
 
     /**
@@ -170,5 +179,22 @@ class Optie
     {
         $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOptieTitel()
+    {
+        return $this->optieTitel;
+    }
+
+    /**
+     * @param mixed $optieTitel
+     */
+    public function setOptieTitel($optieTitel)
+    {
+        $this->optieTitel = $optieTitel;
+    }
+
 
 }
