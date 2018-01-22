@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Optie;
+use App\Entity\OptieProduct;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -10,7 +10,7 @@ class OptieRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Optie::class);
+        parent::__construct($registry, OptieProduct::class);
     }
 
     /*

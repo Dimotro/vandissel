@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\KlantaccountRepository")
  */
-class Klantaccount
+class Klantaccount implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id
@@ -18,30 +20,53 @@ class Klantaccount
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="klant")
+     * @ORM\Column(type="string", length=25, unique=true)
      */
-    private $bestellingen;
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", length=64)
+     */
+    private $password;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
+
 
     /**
      * @ORM\Column(type="string")
      */
-    private $klantEmail;
-
-
-    /**
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $klantGebruikersnaam;
+    private $verificationToken;
 
     /**
      * @ORM\Column(type="string")
      */
-    private $klantWachtwoord;
+    private $forgetToken;
+
+    /**
+     * @ORM\Column(type="string", length=60, unique=true)
+     */
+    private $email;
+
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $klantStatus;
+    private $isVerified;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\KlantOrder", mappedBy="klant")
+     */
+    private $bestellingen;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Klantgegeven", inversedBy="klantAccount")
@@ -51,6 +76,10 @@ class Klantaccount
     public function __construct()
     {
         $this->bestellingen = new ArrayCollection();
+        $this->verificationToken = random_int(1, 990000000000);
+        $this->forgetToken = random_int(1, 990000000000);
+        $this->isActive = true;
+        $this->isVerified = false;
     }
 
     /**
@@ -59,54 +88,6 @@ class Klantaccount
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getKlantEmail()
-    {
-        return $this->klantEmail;
-    }
-
-    /**
-     * @param mixed $klantEmail
-     */
-    public function setKlantEmail($klantEmail)
-    {
-        $this->klantEmail = $klantEmail;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getKlantWachtwoord()
-    {
-        return $this->klantWachtwoord;
-    }
-
-    /**
-     * @param mixed $klantWachtwoord
-     */
-    public function setKlantWachtwoord($klantWachtwoord)
-    {
-        $this->klantWachtwoord = $klantWachtwoord;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getKlantStatus()
-    {
-        return $this->klantStatus;
-    }
-
-    /**
-     * @param mixed $klantStatus
-     */
-    public function setKlantStatus($klantStatus)
-    {
-        $this->klantStatus = $klantStatus;
     }
 
     /**
@@ -125,29 +106,158 @@ class Klantaccount
         $this->klantPersoonlijkeGegevens = $klantPersoonlijkeGegevens;
     }
 
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
     /**
      * @return mixed
      */
+    public function getVerificationToken()
+    {
+        return $this->verificationToken;
+    }
+
+    /**
+     * @param mixed $verificationToken
+     */
+    public function setVerificationToken($verificationToken)
+    {
+        $this->verificationToken = $verificationToken;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisVerified()
+    {
+        return $this->isVerified;
+    }
+
+    /**
+     * @param mixed $isVerified
+     */
+    public function setIsVerified($isVerified)
+    {
+        $this->isVerified = $isVerified;
+    }
+
+
+
     public function getBestellingen()
     {
         return $this->bestellingen;
     }
 
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
     /**
      * @return mixed
      */
-    public function getKlantGebruikersnaam()
+    public function getEmail()
     {
-        return $this->klantGebruikersnaam;
+        return $this->email;
     }
 
     /**
-     * @param mixed $klantGebruikersnaam
+     * @return mixed
      */
-    public function setKlantGebruikersnaam($klantGebruikersnaam)
+    public function getisActive()
     {
-        $this->klantGebruikersnaam = $klantGebruikersnaam;
+        return $this->isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getForgetToken()
+    {
+        return $this->forgetToken;
+    }
+
+    /**
+     * @param mixed $forgetToken
+     */
+    public function setForgetToken($forgetToken)
+    {
+        $this->forgetToken = $forgetToken;
     }
 
 
+
+    public function getRoles()
+    {
+        if( $this->username == 'beheerder' ){
+            return array('ROLE_ADMIN');
+        } else{
+            return array('ROLE_USER');
+        }
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            ) = unserialize($serialized);
+    }
 }

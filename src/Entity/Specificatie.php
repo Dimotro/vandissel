@@ -17,7 +17,7 @@ class Specificatie
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Object", inversedBy="specificatie")
+     * @ORM\OneToOne(targetEntity="App\Entity\ObjectProduct", mappedBy="specificatie")
      */
     private $object;
 
