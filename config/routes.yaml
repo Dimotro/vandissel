@@ -4,15 +4,15 @@ homepage:
     controller: App\Controller\DefaultController::home
 
 contact_page:
-    path: /contact
+    path: pages/contact
     controller: App\Controller\DefaultController::contact
 
 overons_page:
-    path: /overons
+    path: pages/overons
     controller: App\Controller\DefaultController::overons
 
 huidigaanbod_page:
-    path: /huidigaanbod
+    path: pages/huidigaanbod
     controller: App\Controller\DefaultController::huidigaanbod
 
 register_page:

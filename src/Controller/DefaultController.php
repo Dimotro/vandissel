@@ -30,7 +30,7 @@ class DefaultController extends Controller
     public function contact()
     {
         // $this->render kan aangeroepen worden omdat deze templating-engine beschikbaar wordt gesteld door 'extends Controller'
-        return $this->render('contact.html.twig');
+        return $this->render('/pages/contact.html.twig');
 
     }
 
@@ -81,13 +81,13 @@ class DefaultController extends Controller
     // Controller voor de over ons pagina. Deze controller wordt gekoppeld aan een route in config/routing.yaml
     public function overons(){
         // $this->render kan aangeroepen worden omdat deze templating-engine beschikbaar wordt gesteld door 'extends Controller'
-        return $this->render('overons.html.twig');
+        return $this->render('pages/overons.html.twig');
     }
 
     // Controller voor het huidig aanbod pagina. Deze controller wordt gekoppeld aan een route in config/routing.yaml
     public function huidigaanbod(){
         // $this->render kan aangeroepen worden omdat deze templating-engine beschikbaar wordt gesteld door 'extends Controller'
-        return $this->render('huidigaanbod.html.twig');
+        return $this->render('pages/huidigaanbod.html.twig');
     }
 
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer)
